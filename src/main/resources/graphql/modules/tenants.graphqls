@@ -1,0 +1,18 @@
+type Tenant {
+    id: ID!
+    name: String!
+    code: String!
+}
+
+input TenantDto {
+    name: String!
+    code: String!
+}
+
+extend type Query {
+    paginateTenant: [Tenant]
+}
+
+extend type Mutation {
+    saveTenant(tenantDto: TenantDto!): Tenant
+}

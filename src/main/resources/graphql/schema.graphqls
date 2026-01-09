@@ -1,0 +1,13 @@
+enum DatabaseType {
+  POSTGRESQL
+  MYSQL
+}
+
+
+type Query {
+
+}
+
+type Mutation {
+
+}

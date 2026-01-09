@@ -1,0 +1,2 @@
+@SQLDelete(sql = "UPDATE #{#entity} SET deleted = true WHERE id = ?")
+querydsl-jpa

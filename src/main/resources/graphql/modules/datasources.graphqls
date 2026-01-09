@@ -1,0 +1,18 @@
+type Datasource {
+    id: ID!
+    name: String!
+    code: String!
+}
+
+input DatasourceDto {
+    name: String!
+    code: String!
+}
+
+extend type Query {
+    paginateDatasource: [Datasource]
+}
+
+extend type Mutation {
+    saveDatasource(datasourceDto: DatasourceDto!): Datasource
+}
