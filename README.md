@@ -68,8 +68,8 @@ src/main/kotlin/com.negocil.nego_tenant/
 ### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/negocil/nego-tenant.git
-cd nego-tenant
+git clone https://github.com/negocil-nego/negotenant
+cd negotenant
 ```
 
 ### 2. Configure o banco de dados
