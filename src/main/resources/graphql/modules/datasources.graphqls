@@ -1,3 +1,8 @@
+enum DatabaseType {
+    POSTGRESQL
+    MYSQL
+}
+
 type Datasource {
     id: ID!
     name: String!

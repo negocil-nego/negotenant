@@ -1,8 +1,11 @@
 package com.negocil.nego_tenant.modules.tenant.service
 
-import com.negocil.nego_tenant.shared.service.ConcreteService
+import com.negocil.nego_tenant.modules.tenant.controller.response.TenantPageResponse
 import com.negocil.nego_tenant.modules.tenant.repoisitory.TenantContractRepo
+import com.negocil.nego_tenant.shared.service.ConcreteService
 import com.negocil.nego_tenant.modules.tenant.model.Tenant
+import com.negocil.nego_tenant.shared.util.PaginateDto
+import org.springframework.data.domain.PageRequest
 import org.springframework.data.domain.Pageable
 
 abstract class TenantContractService(
@@ -12,6 +15,12 @@ abstract class TenantContractService(
     override fun save(data: Tenant): Tenant {
         return super.save(data)
     }
+
+    fun paginate(paginate: Pageable) = TenantPageResponse(super.findAll(paginate))
+
+    fun paginate(paginateDto: PaginateDto) = TenantPageResponse(super.findAll(
+        PageRequest.of(paginateDto.pageNumber, paginateDto.pageSize))
+    )
 
     fun findByName(name: String, pageable: Pageable) = tenantContractRepo.findByName(name, pageable)
 

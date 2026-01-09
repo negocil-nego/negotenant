@@ -1,13 +1,14 @@
-enum DatabaseType {
-  POSTGRESQL
-  MYSQL
+enum SortType {
+  DESC
+  ASC
 }
 
 
-type Query {
-
+input PaginateDto {
+  pageNumber: Int
+  pageSize: Int
 }
 
-type Mutation {
+type Query {}
 
-}
+type Mutation {}

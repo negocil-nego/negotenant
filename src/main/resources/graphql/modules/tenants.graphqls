@@ -1,7 +1,18 @@
 type Tenant {
-    id: ID!
+    uuid: ID!
     name: String!
-    code: String!
+}
+
+type TenantPage {
+    content: [Tenant]!
+    empty: Boolean!
+    first: Boolean!
+    last: Boolean!
+    number: Int!
+    numberOfElements: Int!
+    size: Int!
+    totalElements: Int!
+    totalPages: Int!
 }
 
 input TenantDto {
@@ -10,7 +21,7 @@ input TenantDto {
 }
 
 extend type Query {
-    paginateTenant: [Tenant]
+    paginateTenant(paginateDto: PaginateDto): TenantPage!
 }
 
 extend type Mutation {

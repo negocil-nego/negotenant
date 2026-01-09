@@ -2,6 +2,7 @@ package com.negocil.nego_tenant.modules.tenant.controller.graphql
 
 import com.negocil.nego_tenant.modules.tenant.service.TenantDatabaseService
 import com.negocil.nego_tenant.modules.tenant.controller.dto.TenantDto
+import com.negocil.nego_tenant.shared.util.PaginateDto
 import org.springframework.graphql.data.method.annotation.MutationMapping
 import org.springframework.graphql.data.method.annotation.QueryMapping
 import org.springframework.graphql.data.method.annotation.Argument
@@ -13,7 +14,7 @@ class TenantGraphql(
     private val service: TenantDatabaseService
 ) {
     @QueryMapping
-    fun paginateTenant() = service.findAll()
+    fun paginateTenant(@Argument paginateDto: PaginateDto) = service.paginate(paginateDto)
 
     @MutationMapping
     fun saveTenant(@Argument @Valid dto: TenantDto) = service.save(dto.toModel())
