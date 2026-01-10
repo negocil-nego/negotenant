@@ -26,4 +26,6 @@ extend type Query {
 
 extend type Mutation {
     saveTenant(tenantDto: TenantDto!): Tenant
+    updateTenant(uuid: String!, tenantDto: TenantDto!): Tenant
+    deleteByUuidTenant(uuid: String!): Boolean
 }
