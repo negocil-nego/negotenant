@@ -22,6 +22,7 @@ input TenantDto {
 
 extend type Query {
     paginateTenant(paginateDto: PaginateDto): TenantPage!
+    findByUuidTenant(uuid: String!): Tenant
 }
 
 extend type Mutation {

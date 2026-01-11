@@ -4,9 +4,26 @@ enum DatabaseType {
 }
 
 type Datasource {
-    id: ID!
-    name: String!
-    code: String!
+    uuid: ID!
+    port: Int!
+    host: String!
+    dbname: String!
+    username: String!
+    password: String!
+    driver: String!
+    databaseType: DatabaseType!
+}
+
+type DatasourcePage {
+    content: [Datasource]!
+    empty: Boolean!
+    first: Boolean!
+    last: Boolean!
+    number: Int!
+    numberOfElements: Int!
+    size: Int!
+    totalElements: Int!
+    totalPages: Int!
 }
 
 input DatasourceDto {
@@ -14,10 +31,14 @@ input DatasourceDto {
     code: String!
 }
 
+
 extend type Query {
-    paginateDatasource: [Datasource]
+    paginateDatasource(paginateDto: PaginateDto): DatasourcePage!
+    findByUuidDatasource(uuid: String!): Datasource
 }
 
 extend type Mutation {
     saveDatasource(datasourceDto: DatasourceDto!): Datasource
+    updateDatasource(uuid: String!, datasourceDto: DatasourceDto!): Datasource
+    deleteByUuidDatasource(uuid: String!): Boolean
 }
