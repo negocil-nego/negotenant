@@ -3,12 +3,7 @@ enum SortType {
   ASC
 }
 
-
 input PaginateDto {
   pageNumber: Int
   pageSize: Int
 }
-
-type Query {}
-
-type Mutation {}

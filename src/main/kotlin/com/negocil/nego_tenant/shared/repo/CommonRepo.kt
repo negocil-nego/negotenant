@@ -15,7 +15,7 @@ interface CommonRepo<T: CommonModel> {
 
     fun save(model: T): T
 
-    fun update(id: UUID, model: T): T
+    fun update(uuid: UUID, model: T): T
 
     fun delete(model: T): Unit
 

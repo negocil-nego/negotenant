@@ -11,6 +11,7 @@ type Datasource {
     username: String!
     password: String!
     driver: String!
+    tenant: Tenant!
     databaseType: DatabaseType!
 }
 

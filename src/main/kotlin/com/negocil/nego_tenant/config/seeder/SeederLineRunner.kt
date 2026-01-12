@@ -1,7 +1,7 @@
 package com.negocil.nego_tenant.config.seeder
 
-import com.negocil.nego_tenant.modulith.datasource.data.seeder.DatasourceSeeder
-import com.negocil.nego_tenant.modulith.tenant.data.seeder.TenantSeeder
+import com.negocil.nego_tenant.modulith.datasource.seeder.DatasourceSeeder
+import com.negocil.nego_tenant.modulith.tenant.seeder.TenantSeeder
 import org.springframework.boot.CommandLineRunner
 import org.springframework.stereotype.Component
 

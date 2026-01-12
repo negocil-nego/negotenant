@@ -20,12 +20,12 @@ input TenantDto {
     code: String!
 }
 
-extend type Query {
+type Query {
     paginateTenant(paginateDto: PaginateDto): TenantPage!
     findByUuidTenant(uuid: String!): Tenant
 }
 
-extend type Mutation {
+type Mutation {
     saveTenant(tenantDto: TenantDto!): Tenant
     updateTenant(uuid: String!, tenantDto: TenantDto!): Tenant
     deleteByUuidTenant(uuid: String!): Boolean

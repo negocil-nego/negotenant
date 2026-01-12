@@ -3,6 +3,7 @@ package com.negocil.nego_tenant.shared.repo.jpa.impl
 import com.negocil.nego_tenant.shared.model.CommonModel
 import com.negocil.nego_tenant.shared.repo.CommonRepo
 import com.negocil.nego_tenant.shared.repo.jpa.JpaConcreteRepo
+import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import java.util.UUID
 
@@ -12,7 +13,7 @@ abstract class JpaCommonRepoImpl<T: CommonModel>(
 
     override fun findAll(): List<T> = repo.findAll()
 
-    override fun paginate(pageable: Pageable) = repo.findAll(pageable)
+    override fun paginate(pageable: Pageable): Page<T> = repo.findAll(pageable)
 
     override fun findByUuid(uuid: UUID) = repo.findByUuid(uuid)
 
