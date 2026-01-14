@@ -1,7 +1,21 @@
 package com.negocil.nego_tenant.shared.repo
 
-import org.junit.jupiter.api.Assertions.*
+import com.negocil.nego_tenant.shared.model.ConcreteModel
 
-class ConcreteRepoTest {
+abstract class ConcreteRepoTest<T: ConcreteModel>(
+    concreteRepo: ConcreteRepo<T>
+): CommonRepoTest<T>(concreteRepo) {
+
+    fun findByUuid_WhenDoesThrow() {
+
+    }
+
+    fun update_WhenDoesThrow() {
+
+    }
+
+    fun deleteByUuid_WhenDoesThrow() {
+
+    }
 
 }

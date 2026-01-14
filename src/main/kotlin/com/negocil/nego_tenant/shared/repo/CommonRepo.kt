@@ -11,15 +11,9 @@ interface CommonRepo<T: CommonModel> {
 
     fun paginate(pageable: Pageable): Page<T>
 
-    fun findByUuid(uuid: UUID): Optional<T>
-
     fun save(model: T): T
 
-    fun update(uuid: UUID, model: T): T
-
     fun delete(model: T): Unit
-
-    fun deleteByUuid(uuid: UUID)
 
     fun deleteAll()
 

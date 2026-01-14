@@ -14,13 +14,8 @@ abstract class CommonService<T: CommonModel>(
 
     open fun findAll(paginate: Pageable) = repository.paginate(paginate)
 
-    open fun findByUuid(uuid: UUID): T = repository.findByUuid(uuid).orElseThrow { NotFoundException("") }
-
     open fun save(data: T) = repository.save(data)
-
-    open fun update(uuid: UUID, data: T) = repository.update(uuid, data)
 
     open fun delete(data: T) = repository.delete(data)
 
-    open fun deleteByUuid(uuid: UUID) = repository.deleteByUuid(uuid)
 }

@@ -5,20 +5,17 @@ import org.springframework.data.jpa.repository.Modifying
 import org.springframework.data.jpa.repository.Query
 import org.springframework.data.repository.NoRepositoryBean
 import org.springframework.transaction.annotation.Transactional
+import java.util.Optional
 import java.util.UUID
 
 @NoRepositoryBean
 interface JpaConcreteRepo<T: CommonModel>: JpaCommonRepo<T> {
-
-    @Modifying
-    @Transactional
-    @Query("UPDATE #{#entityName} e SET e.deleted = true WHERE e.id = :id")
-    override fun deleteById(id: Long)
+    fun findByUuid(uuid: UUID): Optional<T>
 
     @Modifying
     @Transactional
     @Query("UPDATE #{#entityName} e SET e.deleted = true WHERE e.uuid = :uuid")
-    override fun deleteByUuid(uuid: UUID)
+    fun deleteByUuid(uuid: UUID)
 
     @Modifying
     @Transactional
