@@ -13,7 +13,7 @@ class TenantJpaRepoTest: JpaConcreteRepoTest<Tenant>() {
     @Autowired lateinit var tenantJpaRepo: TenantJpaRepo
 
     @BeforeEach
-    fun setUp() {
+    fun setRepo() {
         setRepo(tenantJpaRepo)
     }
 
